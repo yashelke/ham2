@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Responsive Fullscreen Hamburger Menu</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #111;
+      color: white;
+      padding: 1rem 2rem;
+      position: relative;
+      z-index: 1001;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      font-size: 2rem;
+      cursor: pointer;
+      display: none;
+      color: white;
+      z-index: 1002;
+    }
+
+    #menu-toggle {
+      display: none;
+    }
+
+    .menu {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .menu a {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .menu a:hover {
+      color: yellow;
+      text-decoration: underline;
+    }
+
+    /* Mobile Styles */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+
+      .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #111;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        display: none;
+        z-index: 1000;
+      }
+
+      #menu-toggle:checked ~ .menu {
+        display: flex;
+      }
+
+      .menu a {
+        font-size: 1.5rem;
+        padding: 1rem;
+        border-bottom: 1px solid #333;
+      }
+
+      .menu a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        transform: scale(1.1);
+      }
+    }
+
+    section {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    footer {
+      background: #f4f4f4;
+      padding: 1rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">MyWebsite</div>
+      <input type="checkbox" id="menu-toggle" />
+      <label for="menu-toggle" class="hamburger">&#9776;</label>
+
+      <div class="menu">
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <section>
+    <h1>Welcome to My Responsive Webpage</h1>
+    <p>This page has a fullscreen hamburger menu on mobile.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MyWebsite. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
